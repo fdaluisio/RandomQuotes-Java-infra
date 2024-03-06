@@ -1,0 +1,19 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: randomquotes
+  namespace: fdaluisio-dev
+  labels:
+    app: randomquotes
+    deployment: randomquotes
+spec:
+  ports:
+    - name: 8080-tcp
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  ipFamilies:
+    - IPv4
+  type: ClusterIP
+  selector:
+    app: randomquotes  
