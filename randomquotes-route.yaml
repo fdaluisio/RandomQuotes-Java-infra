@@ -1,0 +1,18 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: randomquotes
+  namespace: fdaluisio-dev
+  labels:
+    app: randomquotes
+    deployment: randomquotes
+spec:
+  to:
+    kind: Service
+    name: randomquotes
+    weight: 100
+  port:
+    targetPort: 8080-tcp
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
