@@ -3,9 +3,10 @@ kind: Application
 metadata:
   name: randomquotes-java
   namespace: openshift-gitops
-  finalizers:
+OB  finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
+  project: default
   destination:
     name: ''
     namespace: myproject
