@@ -6,6 +6,6 @@ replicaCount: 1
 
 image:
   repository: docker.io/fdaluisio/randomquotes
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "0.2"
