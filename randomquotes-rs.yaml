@@ -1,0 +1,27 @@
+kind: ReplicaSet
+apiVersion: apps/v1
+metadata:
+  name: randomquotes-replicaset
+  namespace: fdaluisio-dev
+  labels:
+    app: randomquotes
+    deployment: randomquotes
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: randomquotes
+  template:
+    metadata:
+      labels:
+        app: randomquotes
+        deployment: randomquotes
+    spec:
+      containers:
+        - name: randomquotes
+          image: docker.io/fdaluisio/randomquotes:0.1.9
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          imagePullPolicy: Always
+      restartPolicy: Always
