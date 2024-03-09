@@ -5,7 +5,7 @@
 replicas: 4
 
 saEnable: true
-serviceAccountName: default
+serviceAccountName: guestbook-sa
 
 image:
   repository: docker.io/fdaluisio/randomquotes
