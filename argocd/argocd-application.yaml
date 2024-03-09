@@ -16,13 +16,9 @@ spec:
     repoURL: 'https://github.com/fdaluisio/RandomQuotes-Java-infra.git'
     targetRevision: HEAD
     helm:
-      values: |
-        replicaCount: 2
-        
-#      valueFiles:
-#        - values.yaml
+      valueFiles:
+        - values.yaml
       releaseName: argocd-randomquotes-java
-      
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
