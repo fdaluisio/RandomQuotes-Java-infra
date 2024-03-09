@@ -1,6 +1,6 @@
 {{- if .Values.saEnable }}
 apiVersion: v1
 kind: ServiceAccount
-meta:
+metadata:
   name: {{ .Values.serviceAccountName }}
 {{ end }}
