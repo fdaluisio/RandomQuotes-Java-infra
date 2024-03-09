@@ -2,7 +2,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-replicaCount: 4
+replicas: 4
 
 image:
   repository: docker.io/fdaluisio/randomquotes
