@@ -8,4 +8,4 @@ image:
   repository: docker.io/fdaluisio/randomquotes
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "0.1.9"
+  tag: "0.2"
