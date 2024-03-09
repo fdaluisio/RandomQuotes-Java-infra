@@ -15,6 +15,10 @@ spec:
         app: randomquotes
         deployment: randomquotes
     spec:
+      {{ if .Values.saEnable}}
+      serviceAccountName: {{ .Values.serviceAccountName }}
+      automountServiceAccountToken: false
+      {{ end }}
       containers:
         - name: randomquotes
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"

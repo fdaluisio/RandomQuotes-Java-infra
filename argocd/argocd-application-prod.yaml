@@ -17,7 +17,7 @@ spec:
     targetRevision: HEAD
     helm:
       valueFiles:
-        - values-stage.yaml
+        - values-prod.yaml
       releaseName: argocd-randomquotes-java-stage
   syncPolicy:
     syncOptions:
