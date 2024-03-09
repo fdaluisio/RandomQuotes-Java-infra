@@ -4,7 +4,7 @@
 
 replicas: 3
 
-saEnable: false
+saEnable: False
 serviceAccountName: guestbook-sa
 
 image:
