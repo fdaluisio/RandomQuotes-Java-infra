@@ -19,10 +19,10 @@ spec:
       valueFiles:
         - values-stage.yaml
       releaseName: stage-argocd-randomquotes-java
-  syncPolicy:
-    syncOptions:
-      - CreateNamespace=true
-    automated:
+  syncPolicy: {}
+#    syncOptions:
+#      - CreateNamespace=true
+#    automated:
 #      selfHeal: true
 #      prune: true
-      allowEmpty: true
+#      allowEmpty: true
