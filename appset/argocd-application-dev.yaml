@@ -8,9 +8,9 @@ metadata:
 spec:
   project: default
   destination:
-    name: ''
+    name: dev
     namespace: default
-    server: 'https://192.168.11.167:6445'
+    server: 'https://192.168.11.167:6444'
   source:
     path: randomquotes-java
     repoURL: 'https://github.com/fdaluisio/RandomQuotes-Java-infra.git'

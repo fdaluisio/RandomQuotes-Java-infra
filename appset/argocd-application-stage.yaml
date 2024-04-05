@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: randomquotes-java
+  name: stage-randomquotes-java
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   destination:
-    name: ''
+    name: 'stage'
     namespace: default
-    server: 'https://192.168.11.167:6444'
+      #    server: 'https://192.168.11.167:6445'
   source:
     path: randomquotes-java
     repoURL: 'https://github.com/fdaluisio/RandomQuotes-Java-infra.git'
