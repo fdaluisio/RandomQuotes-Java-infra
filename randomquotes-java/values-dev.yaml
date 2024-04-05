@@ -7,7 +7,7 @@ replicas: 1
 saEnable: false 
 serviceAccountName: guestbook-sa
 
-enabledDB: false
+enabledDB: true
 
 image:
   repository: docker.io/fdaluisio/randomquotes
