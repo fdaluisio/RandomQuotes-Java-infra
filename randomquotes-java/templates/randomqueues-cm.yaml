@@ -4,5 +4,5 @@ kind: ConfigMap
 metadata:
   name: postgres-cm
 data:
-  POSTGRES_DB: "mydb"
+  POSTGRES_URL: "jdbc:postgresql://postgres:5432/mydb"
 {{end}}

@@ -26,6 +26,24 @@ spec:
             - containerPort: 8080
               protocol: TCP
           imagePullPolicy: Always
+          env: 
+           - name: POSTGRES_URL
+             valueFrom:
+               configMapKeyRef:
+                 name: randomquotes-cm
+                 key: POSTGRES_URL
+           - name: POSTGRES_USER
+             valueFrom:
+               secretKeyRef:
+                 name: randomquotes-secret
+                 key: POSTGRES_USER
+           - name: POSTGRES_PASS
+             valueFrom:
+               secretKeyRef:
+                 name: randomquotes-secret
+                 key: POSTGRES_PASSWORD
+
+
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst
