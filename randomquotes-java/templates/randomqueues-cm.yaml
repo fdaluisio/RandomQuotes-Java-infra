@@ -1,0 +1,8 @@
+{{ if .Values.enableDB }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-cm
+data:
+  POSTGRES_DB: "mydb"
+{{end}}
