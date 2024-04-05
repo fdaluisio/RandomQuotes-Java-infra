@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: postgres-cm
+  name: randomquotes-cm
 data:
   POSTGRES_URL: "jdbc:postgresql://postgres:5432/mydb"
 {{end}}
