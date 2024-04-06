@@ -25,7 +25,7 @@ spec:
           ports:
             - containerPort: 8080
               protocol: TCP
-          imagePullPolicy: Always
+          imagePullPolicy: {{ .Values.pullPolicy }}
 {{ if .Values.enabledDB }}
           env: 
            - name: POSTGRES_URL
