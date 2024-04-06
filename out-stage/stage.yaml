@@ -1,10 +1,4 @@
 ---
-# Source: randomquotes-java/templates/randomquotes-sa.yaml
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: guestbook-sa
----
 # Source: randomquotes-java/templates/randomquotes-svc.yaml
 kind: Service
 apiVersion: v1
@@ -43,9 +37,6 @@ spec:
         app: randomquotes
         deployment: randomquotes
     spec:
-      
-      serviceAccountName: guestbook-sa
-      automountServiceAccountToken: false
       
       containers:
         - name: randomquotes
