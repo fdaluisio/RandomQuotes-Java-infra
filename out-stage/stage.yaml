@@ -44,7 +44,7 @@ spec:
           ports:
             - containerPort: 8080
               protocol: TCP
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
 
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
