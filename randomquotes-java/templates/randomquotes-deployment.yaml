@@ -26,6 +26,7 @@ spec:
             - containerPort: 8080
               protocol: TCP
           imagePullPolicy: Always
+{{ if .Values.enabledDB }}
           env: 
            - name: POSTGRES_URL
              valueFrom:
@@ -42,8 +43,7 @@ spec:
                secretKeyRef:
                  name: randomquotes-secret
                  key: POSTGRES_PASS
-
-
+{{end}}
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst
