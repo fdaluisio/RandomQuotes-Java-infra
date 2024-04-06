@@ -63,6 +63,7 @@ spec:
             - containerPort: 8080
               protocol: TCP
           imagePullPolicy: Always
+
           env: 
            - name: POSTGRES_URL
              valueFrom:
@@ -79,7 +80,6 @@ spec:
                secretKeyRef:
                  name: randomquotes-secret
                  key: POSTGRES_PASS
-
 
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
