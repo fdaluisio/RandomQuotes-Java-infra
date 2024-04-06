@@ -41,7 +41,7 @@ spec:
              valueFrom:
                secretKeyRef:
                  name: randomquotes-secret
-                 key: POSTGRES_PASSWORD
+                 key: POSTGRES_PASS
 
 
       restartPolicy: Always
