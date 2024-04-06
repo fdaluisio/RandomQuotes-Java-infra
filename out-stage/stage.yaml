@@ -1,0 +1,82 @@
+---
+# Source: randomquotes-java/templates/randomquotes-sa.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: guestbook-sa
+---
+# Source: randomquotes-java/templates/randomquotes-svc.yaml
+kind: Service
+apiVersion: v1
+metadata:
+  name: randomquotes
+  labels:
+    app: randomquotes
+    deployment: randomquotes
+spec:
+  ports:
+    - name: 8080-tcp
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  ipFamilies:
+    - IPv4
+  type: ClusterIP
+  selector:
+    app: randomquotes
+---
+# Source: randomquotes-java/templates/randomquotes-deployment.yaml
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: randomquotes
+  labels:
+    app: randomquotes
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: randomquotes
+  template:
+    metadata:
+      labels:
+        app: randomquotes
+        deployment: randomquotes
+    spec:
+      
+      serviceAccountName: guestbook-sa
+      automountServiceAccountToken: false
+      
+      containers:
+        - name: randomquotes
+          image: "docker.io/fdaluisio/randomquotes:0.2"
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          imagePullPolicy: Always
+          env: 
+           - name: POSTGRES_URL
+             valueFrom:
+               configMapKeyRef:
+                 name: randomquotes-cm
+                 key: POSTGRES_URL
+           - name: POSTGRES_USER
+             valueFrom:
+               secretKeyRef:
+                 name: randomquotes-secret
+                 key: POSTGRES_USER
+           - name: POSTGRES_PASS
+             valueFrom:
+               secretKeyRef:
+                 name: randomquotes-secret
+                 key: POSTGRES_PASS
+
+
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
