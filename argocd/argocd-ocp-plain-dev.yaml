@@ -9,7 +9,7 @@ spec:
   project: default
   destination:
     name: 'in-cluster'
-    namespace: default
+    namespace: myproject
   source:
     path: out-ocp-dev/
     repoURL: 'https://github.com/fdaluisio/RandomQuotes-Java-infra.git'
