@@ -1,0 +1,16 @@
+# Default values for randomquotes-java.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicas: 1
+
+saEnable: false
+serviceAccountName: guestbook-sa
+
+enabledDB: false
+
+image:
+  repository: docker.io/fdaluisio/randomquotes
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "0.2"
